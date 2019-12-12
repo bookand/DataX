@@ -51,6 +51,7 @@ public class StandAloneJobContainerCommunicator extends AbstractContainerCommuni
         reportVmInfo();
     }
 
+    //deng 获取任务状态
     @Override
     public Communication getCommunication(Integer taskGroupId) {
         return super.getCollector().getTGCommunication(taskGroupId);

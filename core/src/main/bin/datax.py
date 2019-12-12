@@ -105,6 +105,8 @@ def getOptionParser():
                                  help="Set to remote debug mode.")
     devEnvOptionGroup.add_option("--loglevel", metavar="<log level>", dest="loglevel", action="store",
                                  default="info", help="Set log level such as: debug, info, all etc.")
+    prodEnvOptionGroup.add_option("--logFileName", metavar="<log file name>", dest="logfilename", action="store", default="datax_job",
+                                  help="Set log fileName")
     parser.add_option_group(devEnvOptionGroup)
     return parser
 
@@ -183,7 +185,8 @@ def buildStartCommand(options, args):
         if jobResource.lower().startswith("file://"):
             jobResource = jobResource[len("file://"):]
 
-    jobParams = ("-Dlog.file.name=%s") % (jobResource[-20:].replace('/', '_').replace('.', '_'))
+    # jobParams = ("-Dlog.file.name=%s") % (jobResource[-20:].replace('/', '_').replace('.', '_'))
+    jobParams = ("-Dlog.file.name=%s") % (options.logfilename)
     if options.params:
         jobParams = jobParams + " " + options.params
 
