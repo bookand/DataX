@@ -525,6 +525,8 @@ public class UnstructuredStorageReaderUtil {
 
 		// column: 1. index type 2.value type 3.when type is Date, may have format
 		validateColumn(readerConfiguration);
+		//添加读取CSVReaderConfig的操作
+        validateCsvReaderConfig(readerConfiguration);
 
 	}
 

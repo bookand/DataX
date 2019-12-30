@@ -52,6 +52,8 @@ public class TxtFileReader extends Reader {
 			this.pattern = new HashMap<String, Pattern>();
 			this.isRegexPath = new HashMap<String, Boolean>();
 			this.validateParameter();
+			//添加读取CSVReaderConfig的操作
+			UnstructuredStorageReaderUtil.validateCsvReaderConfig(this.originConfig);
 		}
 
 		private void validateParameter() {
